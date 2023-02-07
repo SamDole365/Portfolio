@@ -13,9 +13,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
+    <script src="main.js" defer></script> /* defer를 붙이면, js 파일을 모두 다운로드 한 후에 실행함. html 먼저 깔아주고, js 실행하는 것임
 </head>
 <body>
-    
+    <nav id="navbar">
+        <div class="navbar__logo">
+            <i class="fab fa-diaspora"></i>
+            <a href="#">Aiden</a>
+        </div>
+        <div class="navbar__menu">
+            <ul class="navbar__menu">
+                <li class="navbar__menu__item">Home</li>
+                <li class="navbar__menu__item">About</li>
+                <li class="navbar__menu__item">Skills</li>
+                <li class="navbar__menu__item">Work</li>
+                <li class="navbar__menu__item">Testimonials</li>
+                <li class="navbar__menu__item">Contact</li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home">
+        <img src="imgs/" alt="Aiden's photo" class="home__avatar" />
+        <h1 class="home__title">Hello, <br />I'm Aiden</h1>
+        <h2 class="home__description">what you looking at ~</h2>
+        <button class="home__contact">Contact Me</button>
+    </section>
+    <section id="about"></section>
+    <section id="skills"></section>
+    <section id="work"></section>
+    <section id="testimonials"></section>
+    <section id="contact"></section>
 </body>
 </html>
