@@ -50,11 +50,36 @@ document.addEventListener('scroll', () => {
 //arrow 버튼 누르면 top으로 이동
 arrowUp.addEventListener('click', () => {
     scrollIntoView('#home');
-})
+});
+
+//
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+
+workBtnContainer.addEventListener('click', (event) => {
+    const filter = event.target.dataset.filter || event.target.parentNode.dataset.filter;
+    if(filter == null) {
+        return;
+    }
+    projectContainer.classList.add('animation-out');
+
+    setTimeout(()=> {
+            /* forEach => for(let i = 0; i < projects.length; i++) */
+    projects.forEach((project) => {
+        if(filter === '*' || filter === project.dataset.type) {
+            project.classList.remove('invisible');
+        } else {
+            project.classList.add('invisible');
+        }
+    });
+    projectContainer.classList.remove('animation-out');
+    }, 300);
+});
 
 
 // navbar & button 클릭시 스크롤을 위한 함수
 function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: 'smooth'});
-}
+};
