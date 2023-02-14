@@ -20,8 +20,26 @@ navbarMenu.addEventListener('click', (event) => {
     if(link == null) {
         return;
     }
-    console.log(event.target.dataset.link);
 
-    const scrollTo = document.querySelector(link);
-    scrollTo.scrollIntoView({behavior: 'smooth'});
+    scrollIntoView(link);
 })
+
+// contact Me 버튼 클릭시 해당 part로 스크롤
+const homeContactBtn = document.querySelector('.home__contact');
+homeContactBtn.addEventListener('click', () => {
+    scrollIntoView('#contact');
+})
+
+//스크롤시 home 요소들 fade out
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+    home.style.opacity = 1 - window.scrollY / homeHeight;
+})
+
+
+// navbar & button 클릭시 스크롤을 위한 함수
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior: 'smooth'});
+}
