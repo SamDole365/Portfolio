@@ -10,7 +10,7 @@ document.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('navbar--dark');
     }
-})
+});
 
 // navbar 메뉴 클릭시 해당 part로 스크롤
 const navbarMenu = document.querySelector('.navbar__menu');
@@ -20,22 +20,28 @@ navbarMenu.addEventListener('click', (event) => {
     if(link == null) {
         return;
     }
-
+    navbarMenu.classList.remove('open');
     scrollIntoView(link);
-})
+});
+
+// navbar 토글 버튼
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
+});
 
 // contact Me 버튼 클릭시 해당 part로 스크롤
 const homeContactBtn = document.querySelector('.home__contact');
 homeContactBtn.addEventListener('click', () => {
     scrollIntoView('#contact');
-})
+});
 
 //스크롤시 home 요소들 fade out
 const home = document.querySelector('.home__container');
 const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
     home.style.opacity = 1 - window.scrollY / homeHeight;
-})
+});
 
 //arrow 버튼이 home에서 멀어지면 나타나고 가까워지면 사라짐
 const arrowUp = document.querySelector('.arrow-up');
