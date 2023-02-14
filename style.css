@@ -130,6 +130,9 @@ p {
   border: 1px solid transparent;
   border-radius: var(--size-border-radius);
 }
+.navbar__menu__item.active {
+  border: 1px solid white;
+}
 
 .navbar__menu__item:hover {
   border-color: var(--color-white);
@@ -149,8 +152,7 @@ p {
 /* Home */
 #home {
   background: url('imgs/home-background.jpg') center/cover no-repeat;
-  padding: 40px;
-  padding: 120px;
+  padding: 120px 40px;
   text-align: center;
 }
 
@@ -176,10 +178,15 @@ p {
   border-radius: var(--size-border-radius);
 }
 
+.home__contact:hover {
+  background-color: var(--color-orange);
+}
+
 .section {
   text-align: center;
   padding: 50px;
   margin: auto;
+  padding-top: 85px;
 }
 
 .section__container {
@@ -209,6 +216,7 @@ p {
 .major__icon i {
   transition: var(--animation-duration);
 }
+
 .major__icon:hover i{
   color: var(--color-pink);
   transform: rotate(30deg) scale(1.2);
@@ -311,6 +319,9 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
+  margin: 10px;
+  align-items: center;
 }
 
 .category__btn.selected,
@@ -333,9 +344,9 @@ p {
   height: 24px;
   display: inline-block;
   line-height: 24px;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration);
 }
@@ -501,8 +512,21 @@ p {
 
 /* For below 768px screen width*/
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+  --font-large: 30px;
+  --font-medium: 18px;
+  --font-regular: 16px;
+  --font-small: 14px;
+  --font-micro: 12px;
+  }
+
+
   .navbar__toggle-btn {
+    top: 16px;
+    right: 16px;
     display: block;
+    font-size: var(--font-medium);
   }
   
   #navbar {
@@ -526,25 +550,64 @@ p {
     display: block;
   }
 
+
+  .section {
+    padding: 16px;
+    padding-top: 44px;
+  }
+
   .about__majors {
     flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 
   .major {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .skillset {
     flex-direction: column;
   }
 
+  .category__btn {
+    margin: 4px 0;
+    width: 60%;
+  }
+
   .project {
     flex-grow: 1;
+  }
+
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
   }
 
   .testimonial__avatar {
     width: 80px;
     height: 80px;
+  }
+
+  .testimonial__avatar:nth-child(even){
+    margin: 0;
+  }
+
+  .testimonial__avatar:nth-child(odd){
+    margin: 0;
+  }
+
+  .testimonial__speech-bubble {
+    order: 1;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    right: 16px;
+    bottom: 16px;
   }
 }
 
