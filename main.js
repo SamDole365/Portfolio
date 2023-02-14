@@ -37,6 +37,21 @@ document.addEventListener('scroll', () => {
     home.style.opacity = 1 - window.scrollY / homeHeight;
 })
 
+//arrow 버튼이 home에서 멀어지면 나타나고 가까워지면 사라짐
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+    if(window.scrollY > homeHeight / 2) {
+        arrowUp.classList.add('visible');
+    } else {
+        arrowUp.classList.remove('visible');
+    }
+});
+
+//arrow 버튼 누르면 top으로 이동
+arrowUp.addEventListener('click', () => {
+    scrollIntoView('#home');
+})
+
 
 // navbar & button 클릭시 스크롤을 위한 함수
 function scrollIntoView(selector) {
